@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            padding: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center the content vertically */
+            align-items: center;    /* Center the content horizontally */
+            height: 200px;
+            width: 300px;
+        }
+        
+        .purple {
+            background-color: purple;
+        }
+        
+        .gold {
+            background-color: gold;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: auto; /* Ensure the button stays at the bottom */
+        }
+        
+        button:hover {
+            background-color: #555;
+        }
+        
+        p {
+            font-size: 18px;
+            margin: 0;
+            text-align: center; /* Ensure the text is centered */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container purple" id="container">
+        <p id="text">This is the initial state.</p>
+        <button id="toggleButton" onclick="toggleState()">Click me!</button>
+    </div>
+
+    <script>
+        function toggleState() {
+            const button = document.getElementById("toggleButton");
+            const container = document.getElementById("container");
+            const text = document.getElementById("text");
+
+            if (container.classList.contains("purple")) {
+                container.classList.remove("purple");
+                container.classList.add("gold");
+                button.textContent = "Go back!";
+                text.textContent = "This is the changed state.";
+            } else {
+                container.classList.remove("gold");
+                container.classList.add("purple");
+                button.textContent = "Click me!";
+                text.textContent = "This is the initial state.";
+            }
+        }
+    </script>
+</body>
+</html>
